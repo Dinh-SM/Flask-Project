@@ -2,9 +2,19 @@
 <html>
   <head>
     <title>{{ page_title|default('Site de merde') }}</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Son-Michel DINH">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css'">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 {% block head %}{% endblock %}
   </head>
   <body>
@@ -22,6 +32,6 @@
     </ul>
 {% block content %}{% endblock %}
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!--<script src="{{ url_for('static', filename='script.js') }}"></script>-->
   </body>
 </html>
