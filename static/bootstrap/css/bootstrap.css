@@ -4862,8 +4862,6 @@ input[type="button"].btn-block {
     flex-flow: row wrap;
     margin-right: -15px;
     margin-left: -15px;
-    margin-bottom: -15px;
-    margin-top: -15px;
   }
   .card-deck .card {
     -ms-flex: 1 0 0%;
