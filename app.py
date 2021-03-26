@@ -17,6 +17,28 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/recettes')
+def recettes():
+    app.logger.debug('serving root URL /')
+    return render_template('recettes.html')
+
+@app.route('/recette')
+def recette():
+    app.logger.debug('serving root URL /')
+    return render_template('recette.html')
+
+@app.route('/advanced-search')
+def advanced_search():
+    app.logger.debug('serving root URL /')
+    return render_template('advanced-search.html')
+
+
+@app.route('/contact')
+def contact():
+    app.logger.debug('serving root URL /')
+    return render_template('contact.html')
+
+
 # Script starts here
 if __name__ == '__main__':
     from os import environ

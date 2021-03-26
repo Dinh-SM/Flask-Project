@@ -1,3 +1,11 @@
+body{
+  background-image: url('https://i.pinimg.com/originals/09/ca/c4/09cac4fed1fc60eea86c88ff606cd387.jpg');
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .my-container{
 	margin-top: 1%;
 	margin-bottom: 1%;
@@ -8,8 +16,25 @@
 	font-weight: 800;
 }
 
+.my-subtitle{
+  display: block;
+  background-color: #FFB53C;
+  padding: 1rem 1rem;
+  color: white;
+  border-radius: 5px;
+}
+
+.my-col-title{
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  margin-top: 1%;
+  min-height: 100px;
+  margin-bottom: 1%;
+  padding: 2%;
+}
+
 .my-col{
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	border-radius: 5px;
 	margin-top: 1%;
   min-height: 250px;
@@ -18,14 +43,14 @@
 }
 
 .my-col-2{
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	border-radius: 5px;
 	margin: 1%;
 	padding: 2%;
 }
 
 .my-col-3{
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	border-radius: 5px;
   min-height: 350px;
 	margin: 1%;
@@ -33,7 +58,7 @@
 }
 
 .my-col-4{
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	border-radius: 250px;
 	min-height: 250px;
 	max-width: 250px;
@@ -48,14 +73,14 @@
 }
 
 .my-col-5{
-  background-color: #EEEEEE;
+  background-color: #FFFFFF;
   border-radius: 5px;
   margin: 1%;
   padding: 2%;
 }
 
 .my-col-6{
-  background-color: #EEEEEE;
+  background-color: #FFFFFF;
   border-radius: 5px;
   min-height: 350px;
   margin: 1%;
@@ -63,11 +88,12 @@
 }
 
 .my-link{
-	color: #f7ff00;
+	color: #F3553C;
 }
 
 .my-link:hover{
-	color: #f7ff00;
+  color: #FF917F;
+  text-decoration: none;
 }
 
 .my-link-2{
@@ -75,16 +101,7 @@
 }
 
 .my-link-2:hover{
-  color: #d0d700;
-  text-decoration: none;
-}
-
-.my-link-3{
-  color: #c1c800;
-}
-
-.my-link-3:hover{
-  color: #d1d900;
+  color: #212529;
   text-decoration: none;
 }
 
@@ -97,6 +114,11 @@
 
 .my-resources-div>a{
    width: 100%;
+}
+
+.card-deck .card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
 .carousel-image{
@@ -113,16 +135,14 @@ p{
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		font-size: 400%;
 		text-align: center;
 		font-weight: 800;
-		text-shadow: 1px 1px 3px black;
 		z-index: 10;
 		cursor: default;
 	}
 
   .my-col-3{
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
     border-radius: 5px;
     min-height: 350px;
     max-width: 30%;
@@ -131,7 +151,7 @@ p{
   }
 
   .my-col-5{
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
     border-radius: 5px;
     min-height: 200px;
     max-width: 30%;
@@ -140,7 +160,7 @@ p{
   }
 
   .my-col-6{
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
     border-radius: 5px;
     min-height: 350px;
     max-width: 23%;
@@ -157,7 +177,6 @@ p{
 		transform: translate(-50%, -50%);
 		text-align: center;
 		font-weight: 800;
-		text-shadow: 1px 1px 3px black;
 		z-index: 10;
 		cursor: default;
 	}
@@ -169,16 +188,14 @@ p{
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		font-size: 200%;
 		text-align: center;
 		font-weight: 800;
-		text-shadow: 1px 1px 3px black;
 		z-index: 10;
 		cursor: default;
 	}
 
   .my-col-4{
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
     border-radius: 250px;
     min-height: 250px;
     max-width: 250px;
@@ -208,7 +225,7 @@ p{
 }
 
 .my-jumbotron{
-	background-color: #0f101e;
+	padding: 1rem 0.5rem;
 }
 
 .timeline {
@@ -223,7 +240,7 @@ p{
   position: absolute;
   content: " ";
   width: 3px;
-  background-color: #EEEEEE;
+  background-color: #FFFFFF;
   left: 50%;
   margin-left: -1.5px;
 }
@@ -256,7 +273,7 @@ p{
 .timeline > li > .timeline-panel {
   width: 46%;
   float: left;
-  background-color: #EEEEEE;
+  background-color: #FFFFFF;
   border-radius: 2px;
   padding: 20px;
   position: relative;
@@ -268,7 +285,7 @@ p{
   right: -15px;
   display: inline-block;
   border-top: 15px solid transparent;
-  border-left: 15px solid #EEEEEE;
+  border-left: 15px solid #FFFFFF;
   border-right: 0 solid #ccc;
   border-bottom: 15px solid transparent;
   content: " ";
@@ -280,7 +297,7 @@ p{
   right: -14px;
   display: inline-block;
   border-top: 14px solid transparent;
-  border-left: 14px solid #EEEEEE;
+  border-left: 14px solid #FFFFFF;
   border-right: 0 solid #fff;
   border-bottom: 14px solid transparent;
   content: " ";
@@ -312,7 +329,7 @@ p{
 .timeline > li.timeline-inverted > .timeline-panel:before {
   border-left-width: 0;
   border-right-width: 15px;
-  border-right-color: #EEEEEE;
+  border-right-color: #FFFFFF;
   left: -15px;
   right: auto;
 }
@@ -320,7 +337,7 @@ p{
 .timeline > li.timeline-inverted > .timeline-panel:after {
   border-left-width: 0;
   border-right-width: 14px;
-  border-right-color: #EEEEEE;
+  border-right-color: #FFFFFF;
   left: -14px;
   right: auto;
 }
