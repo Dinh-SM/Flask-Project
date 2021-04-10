@@ -3,11 +3,11 @@ recette1 = {
 	"name": "Couscous Républicain",
 	"type": "Plat",
 	"ingredients": [
-		"Semoule (moyenne)",
-		"Collier d'agneau",
-		"Cuisses de poulet",
+		"Semoule",
+		"Agneau",
+		"Poulet",
 		"Courgettes",
-		"Aubergine",
+		"Aubergines",
 		"Carottes",
 		"Oignons",
 		"Pois chiche",
@@ -19,9 +19,9 @@ recette1 = {
 		"Ail"
 	],
 	"quantities": [
-		"200 g",
-		"400 g",
-		"400 g",
+		"200 g (moyenne)",
+		"400 g de collier",
+		"400 g de cuisses",
 		"2",
 		"0,5",
 		"2",
@@ -88,7 +88,7 @@ recette3 = {
 	"ingredients": [
 		"Poulet",
 		"Huile d'olive",
-		"Oignon",
+		"Oignons",
 		"Vin blanc sec",
 		"Sel",
 		"Poivre",
@@ -130,11 +130,12 @@ recette4 = {
 	"name": "Lasagnes aux légumes non végé",
 	"type": "Plat",
 	"ingredients": [
-		"Courgette",
+		"Courgettes",
 		"Aubergines",
-		"Sauce tomate (pot)",
-		"Concentré de tomate (pot)",
-		"Oignon", "Poivre",
+		"Sauce tomate",
+		"Concentré de tomate",
+		"Oignons",
+		"Poivre",
 		"Huile d'olive",
 		"Viande hâchée",
 		"Lasagnes sèches (en feuille)",
@@ -145,8 +146,8 @@ recette4 = {
 	"quantities": [
 		"3",
 		"2",
-		"1",
-		"1",
+		"1 pot",
+		"1 pot",
 		"à envie",
 		"2 cuil. à soupe",
 		"400 g",
@@ -183,7 +184,7 @@ recette5 = {
 		"Mascarpone",
 		"Sucre roux",
 		"Sucre vanillé",
-		"framboises",
+		"Framboises",
 		"Biscuits à la cuillère",
 		"Amaretto",
 		"Chocolat"
@@ -219,13 +220,13 @@ recette6 = {
 	"name": "Burger au saumon",
 	"type": "Plat",
 	"ingredients": [
-		"Tabasco ou Piment",
+		"Piment",
 		"Sel",
-		"Saumon fumé",
+		"Saumon",
 		"Pains pour Hamburger",
 		"Crème fraiche épaisse 15% mg",
-		"Ciboulette fraîche",
-		"Oignon",
+		"Ciboulette",
+		"Oignons",
 		"Concombre",
 		"Salade",
 		"Poivre",
@@ -235,16 +236,16 @@ recette6 = {
 	"quantities": [
 		"A l'envie",
 		"A l'envie",
-		"6 tranches",
-		"6 pains",
+		"6 tranches fumées",
+		"6",
 		"1 petit pot",
 		"4 cuil. à Soupe",
 		"1",
 		"1/2",
 		"1 feuille",
 		"A l'envie",
-		"1 pas trop mûr",
-		"3 sucrés pour la déco"
+		"1",
+		"3"
 	],
 	"preparation": [
 		"Préparer la crème de ciboulette:",
@@ -270,19 +271,19 @@ recette7 = {
 	"type": "Plat",
 	"ingredients": [
 		"Oignons",
-		"Filets de poulet",
+		"Poulet",
 		"Boîte de tomates pelées",
 		"Boîte de lait de coco",
 		"Citron",
 		"Curry rouge",
 		"Gingembre",
-		"Coriandre fraîche",
+		"Coriandre",
 		"Huile d'olive",
 		"Riz thaï"
 	],
 	"quantities": [
 		"2",
-		"6",
+		"6 filets de",
 		"1",
 		"1",
 		"1",
@@ -314,9 +315,9 @@ recette8 = {
 	"name": "Croque-monsieur",
 	"type": "Plat",
 	"ingredients": [
-		"Tranches de jambon",
-		"Tranches de pain de mie",
-		"Beurre tendre",
+		"Jambon",
+		"Pain de mie",
+		"Beurre",
 		"Gryuère râpé",
 		"Lait",
 		"sel",
@@ -324,8 +325,8 @@ recette8 = {
 		"muscade"
 	],
 	"quantities": [
-		"4",
-		"8",
+		"4 tranches de ",
+		"8 tranches de ",
 		"50 g",
 		"100 g",
 		"4 cuil. à soupe de",
@@ -363,7 +364,7 @@ recette9 = {
 		"Thon",
 		"Anchois au sel",
 		"Olives noires de Nice",
-		"Feuille de basilic",
+		"Basilic",
 		"Radis",
 		"Huile d'olive",
 		"Artichauts violets à l'huile",
@@ -380,7 +381,7 @@ recette9 = {
 		"200 g",
 		"4 filets de",
 		"Des",
-		"Une",
+		"Une feuille de ",
 		"8",
 		"",
 		"4",
@@ -415,7 +416,7 @@ recette10 = {
 		"Pommes de terre",
 		"Boeuf haché",
 		"Tomates",
-		"Oignon",
+		"Oignons",
 		"Huile d'olive",
 		"Beurre",
 		"Cannelle",
@@ -474,7 +475,7 @@ recette11 = {
 	"ingredients": [
 		"Etoile de badiane",
 		"Boeuf maigre",
-		"Citron vert",
+		"Citron",
 		"Gingembre",
 		"Piment",
 		"Coriandre",
@@ -484,12 +485,12 @@ recette11 = {
 		"Sauce nuoc mam",
 		"Sauce sriracha",
 		"Sauce Hoisin",
-		"Poulet oskour"
+		"Poulet"
 	],
 	"quantities": [
 		"1",
 		"400 g",
-		"1",
+		"1 (vert)",
 		"1 morceau",
 		"1 petit",
 		"1 petit bouquet",
@@ -499,7 +500,7 @@ recette11 = {
 		"De la",
 		"De la",
 		"De la",
-		"Du"
+		"(oskour) du"
 	],
 	"preparation": [
 		"Lavez, séchez, ciselez la ciboulette et la coriandre, émincez le piment, coupez le citron vert en 4 dans le sens de la longueur et mettez-les en attente dans des coupelles.",
@@ -524,7 +525,7 @@ recette12 = {
 	"type": "Entrée",
 	"ingredients": [
 		"Pain",
-		"pita",
+		"Pita",
 		"Eau"
 	],
 	"quantities": [
@@ -533,7 +534,7 @@ recette12 = {
 		""
 	],
 	"preparation": [
-		"Mélanger les deux ingrédients",
+		"Mélanger les deux ingrédients et demi",
 		"Mettre au micro-onde pendant 10m à 680W."
 	],
 	"image": "pita.jpeg",
