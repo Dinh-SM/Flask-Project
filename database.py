@@ -599,8 +599,10 @@ def get_ingredients():
 				ingredients.append(ingredient)
 	return ingredients
 
-def get_name():
+def get_names_ids():
 	names = []
+	ids = []
 	for el in recette:
 		names.append(el["name"])
-	return names
+		ids.append(el["id"])
+	return names, ids

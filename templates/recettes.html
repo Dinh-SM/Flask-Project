@@ -34,4 +34,28 @@
 {% endfor %}
 {% endif %}
 
+{% if filtered_recipes %}
+	{% for i in range(4) %}
+	<div class="container my-container">
+		<div class="row justify-content-around">
+			<div class="card-deck">
+
+				{% for j in range(0 + 3*i, 3*(i+1)) %}
+				<div class="card" data-aos="fade-up" data-aos-delay="200">
+					<a class="my-link-2" href="{{ url_for('recette') }}/{{ filtered_recipes[j]['id'] }}">
+						<img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ filtered_recipes[j]['image'] }}" alt="Card image cap">
+						<div class="card-body">
+							<h3 class="card-title text-center">{{ filtered_recipes[j]["name"] }}</h3>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+{% endif %}
+
 {% endblock %}

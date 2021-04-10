@@ -4,7 +4,7 @@
 from flask import Flask, g, json
 from flask import abort, request, make_response
 from flask import render_template
-from database import get_recipe, get_recipes, get_ingredients, get_names
+from database import get_recipe, get_recipes, get_ingredients, get_names_ids
 
 import re
 
@@ -22,16 +22,21 @@ def index():
 def recettes():
     if request.args.get("q"):
         app.logger.debug(request.args.get("q"))
-        names = get_names()
-        ingredients = get_ingredients()
-        if re.search("^.*" + request.args.get("qq") + ".*$", names, re.IGNORECASE):
-            app.logger.debug("boucle reg")
-        abort(100)
+        names, names_ids = get_names_ids()
+        recipes = get_recipes()
+        filtered_recipes = []
+        for recipe in recipes:
+            if re.search("^.*" + request.args.get("q") + ".*$", recipe["name"], re.IGNORECASE) and (recipe not in filtered_recipes):
+                filtered_recipes.append(recipe)
+            for ingredient in recipe["ingredients"]:
+                if re.search("^.*" + request.args.get("q") + ".*$", ingredient, re.IGNORECASE) and (recipe not in filtered_recipes):
+                    filtered_recipes.append(recipe)
+        app.logger.debug(filtered_recipes)
+        card_deck_nb = int(len(recipes) / 3)
+        to_hide = len(recipes) % 3
+        app.logger.debug("card " + str(card_deck_nb) + " hide " + str(to_hide))
+        return render_template('recettes.html', filtered_recipes = filtered_recipes, card_deck_nb = card_deck_nb, to_show = len(filtered_recipes), to_hide = to_hide)
 
-        """
-        filtered_users = [user for user in users if re.search("^.*" + request.args.get("qq") + ".*$", user['name'], re.IGNORECASE)]
-        return render_template('users.html', users=filtered_users, search=True) 
-        """
     else:
         recipes = get_recipes()
         card_deck_nb = int(len(recipes) / 3)
