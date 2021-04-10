@@ -56,12 +56,6 @@ def recette(recipe_id = None):
     abort(404)
 
 
-@app.route('/advanced-search')
-def advanced_search():
-    app.logger.debug('serving root URL /')
-    return render_template('advanced-search.html')
-
-
 @app.route('/contact')
 def contact():
     app.logger.debug('serving root URL /')
