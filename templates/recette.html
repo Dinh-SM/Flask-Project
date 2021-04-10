@@ -13,6 +13,10 @@
 	<div class="row justify-content-around">
 		<div class="col-md-7 my-col" data-aos="fade-right" style="height: auto">
 			<h3>Ingrédients</h3>
+
+
+
+
 		</div>
 		<div class="col-md-5 img-col" data-aos="fade-left" style="display:flex; align-items:center;">
 			<a href="#">
@@ -26,6 +30,8 @@
 	<div class="row justify-content-around">
 		<div class="col-md-12 my-col-2" data-aos="zoom-in-down" style="height: auto">
 			<h3>Préparation</h3>
+
+
 		</div>
 	</div>
 </div>
@@ -34,7 +40,44 @@
 	<div class="row justify-content-around">
 		<div class="col-md-12 my-col-3" data-aos="zoom-in-down" style="height: auto">
 			<h3>Commentaires</h3>
+			<form>
+				<div class="form-group mt-5">
+					<label for="Comment_form">Entrez votre commentaire si vous le souhaitez :</label>
+					<textarea class="form-control" id="Comment_form" rows="4"></textarea>
+				</div>
+				<div class="form-group mt-2">
+					<label for="Comment_form">Auteur :</label>
+					<textarea class="form-control" id="Comment_form" rows="1"></textarea>
+				</div>
+				
+			    <div class="col-auto">
+			    	<button type="submit" class="btn btn-primary mb-2 mt-2">Soumettre le commentaire</button>
+			    </div>	
+			</form>
 		</div>
 	</div>
 </div>
 {% endblock %}
+
+<!--
+
+
+    <h1 class="mt-5">New user inserted:</h1>
+    <ul>
+      <ol>location: <a href="{{ url_for('users', username=n) }}">{{n}}</a> </ol>
+      <ol>user id: {{ dbid }}</ol>
+    </ul>
+
+
+ou 
+
+
+{# Format specific user when single is exposed within "user" in the template #}
+    {% if user is defined %}
+    <h1 class="mt-5">User: {{ user.name }}</h1>
+      <ul>{% for k, v in user.items() %}
+        <li>{{ k }}: {{ v }}</li>
+      {% endfor %}</ul>
+    {% endif %}
+    {# End end single user formating #}
+-->

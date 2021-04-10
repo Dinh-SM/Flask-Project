@@ -599,3 +599,9 @@ def get_ingredients():
 			if ingredient not in ingredients:
 				ingredients.append(ingredient)
 	return ingredients
+
+def get_name():
+	names = []
+	for el in recette:
+		names.append(el["name"])
+	return names
