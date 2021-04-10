@@ -149,11 +149,11 @@ recette4 = {
 		"1",
 		"à envie",
 		"2 cuil. à soupe",
-		"400g",
+		"400 g",
 		"(feuilles)",
-		"50g",
-		"50g",
-		"60cl"
+		"50 g",
+		"50 g",
+		"60 cl"
 	],
 	"preparation": [
 		"Faire la sauce tomate. Emincer finement l'ail et l'oignon. Les faire revenir dans une casserole avec un peu d'huile d'olive. Ajouter un fond de vin blanc. Après 2 minutes de cuisson, ajouter les herbes, puis les tomates concassées et le concentré de tomates. Ajouter 2 cuillères à café de sucre. Saler et poivrer. Laisser mijoter environ 1 heure à feu doux, avec un couvercle. La sauce doit rester assez liquide.",
@@ -190,9 +190,9 @@ recette5 = {
 	],
 	"quantities": [
 		"2",
-		"250g",
-		"70g",
-		"100g",
+		"250 g",
+		"70 g",
+		"100 g",
 		"10",
 		"2 cuil. à café",
 		"1 carré"
@@ -326,8 +326,8 @@ recette8 = {
 	"quantities": [
 		"4",
 		"8",
-		"50g",
-		"100g",
+		"50 g",
+		"100 g",
 		"4 cuil. à soupe de",
 		"1 pincée de",
 		"Du",
@@ -576,5 +576,5 @@ recette69 = {
 	]
 }
 
-recette = [recette1, recette2, recette3, recette4, recette5, recette5, recette6, recette7, recette8, recette9, recette10, recette11, recette12]
+recette = [recette1, recette2, recette3, recette4, recette5, recette5, recette6, recette7, recette8, recette9, recette10, recette11, recette12, recette69]
 print(recette)
