@@ -585,12 +585,11 @@ def get_recipes():
 	return recette
 
 def get_recipe(requested_id):
-	if requested_id == 69:
+	if int(requested_id) == 69:
 		return recette69
 	for recipe in recette:
-		if recipe["id"] == requested_id:
+		if recipe["id"] == int(requested_id):
 			return recipe
-	return None
 
 def get_ingredients():
 	ingredients = []

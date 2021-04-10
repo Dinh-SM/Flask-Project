@@ -148,6 +148,11 @@ body{
   width: auto;
   margin-left: 50%;
   transform: translateX(-64%);
+  max-height: 500px;
+}
+
+.my-li{
+  margin-bottom: 25px;
 }
 
 .carousel-image{

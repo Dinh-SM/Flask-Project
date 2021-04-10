@@ -27,9 +27,15 @@ def recettes():
     return render_template('recettes.html', recipes = recipes, card_deck_nb = card_deck_nb, to_show = len(recipes), to_hide = to_hide)
 
 @app.route('/recette')
-def recette():
-    app.logger.debug('serving root URL /')
-    return render_template('recette.html')
+@app.route('/recette/<recipe_id>')
+def recette(recipe_id = None):
+    if recipe_id:
+        app.logger.debug('Recipe ID' + str(recipe_id))
+        recipe = get_recipe(recipe_id)
+        app.logger.debug(recipe)
+        return render_template('recette.html', recipe = recipe)
+    app.logger.debug('404 NOT FOUND')
+    abort(404)
 
 @app.route('/advanced-search')
 def advanced_search():
