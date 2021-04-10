@@ -590,19 +590,3 @@ def get_recipe(requested_id):
 	for recipe in recette:
 		if recipe["id"] == int(requested_id):
 			return recipe
-
-def get_ingredients():
-	ingredients = []
-	for recipe in recette:
-		for ingredient in recipe["ingredients"]:
-			if ingredient not in ingredients:
-				ingredients.append(ingredient)
-	return ingredients
-
-def get_names_ids():
-	names = []
-	ids = []
-	for el in recette:
-		names.append(el["name"])
-		ids.append(el["id"])
-	return names, ids

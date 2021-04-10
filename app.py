@@ -4,7 +4,7 @@
 from flask import Flask, g, json
 from flask import abort, request, make_response
 from flask import render_template
-from database import get_recipe, get_recipes, get_ingredients, get_names_ids
+from database import get_recipe, get_recipes
 
 import re
 
