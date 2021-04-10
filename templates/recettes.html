@@ -9,139 +9,28 @@
 	</div>
 </div>
 
+{% if recipes %}
+
+{% for i in range(4) %}
 <div class="container my-container">
 	<div class="row justify-content-around">
 		<div class="card-deck">
-		  <div class="card" data-aos="fade-up" data-aos-delay="200">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
 
-		  <div class="card" data-aos="fade-up" data-aos-delay="400">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		  <div class="card" data-aos="fade-up" data-aos-delay="600">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
+			{% for j in range(0 + 3*i, 3*(i+1)) %}
+			<div class="card" data-aos="fade-up" data-aos-delay="200">
+				<a class="my-link-2" href="{{ url_for('recette') }}">
+					<img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ recipes[j]['image'] }}" alt="Card image cap">
+					<div class="card-body">
+						<h3 class="card-title text-center">{{ recipes[j]["name"] }}</h3>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
 
 		</div>
 	</div>
 </div>
+{% endfor %}
+{% endif %}
 
-<div class="container my-container">
-	<div class="row justify-content-around">
-		<div class="card-deck">
-		  <div class="card" data-aos="fade-up" data-aos-delay="200">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		  <div class="card" data-aos="fade-up" data-aos-delay="400">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		  <div class="card" data-aos="fade-up" data-aos-delay="600">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		</div>
-	</div>
-</div>
-
-<div class="container my-container">
-	<div class="row justify-content-around">
-		<div class="card-deck">
-		  <div class="card" data-aos="fade-up" data-aos-delay="200">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		  <div class="card" data-aos="fade-up" data-aos-delay="400">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		  <div class="card" data-aos="fade-up" data-aos-delay="600">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		</div>
-	</div>
-</div>
-
-<div class="container my-container">
-	<div class="row justify-content-around">
-		<div class="card-deck">
-		  <div class="card" data-aos="fade-up" data-aos-delay="200">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		  <div class="card" data-aos="fade-up" data-aos-delay="400">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		  <div class="card" data-aos="fade-up" data-aos-delay="600">
-		  	<a class="my-link-2" href="{{ url_for('recette') }}">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
-			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
-			    </div>
-		    </a>
-		  </div>
-
-		</div>
-	</div>
-</div>
 {% endblock %}

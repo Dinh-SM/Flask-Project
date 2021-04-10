@@ -352,7 +352,8 @@ recette8 = {
 
 recette9 = {
 	"id": 9,
-	"name": "Salade niçoise", "type": "Entrée",
+	"name": "Salade niçoise",
+	"type": "Entrée",
 	"ingredients": [
 		"Sel",
 		"Vinaigre de vin rouge",
@@ -458,7 +459,7 @@ recette10 = {
 		"Montage de la moussaka. Par dessus la couche de pommes de terre, étaler la moitié de la viande hachée avec la tomate, puis la moitié des aubergines, puis l'autre moitié de viande, puis l'autre moitié des aubergines, un filet d'huile d'olive et terminer par la béchamel.",
 		"Enfourner le tout dans le four à 200°C (thermostat 6-7) et laisser cuire 1h (la béchamel doit croustiller et être dorée)."
 	],
-	"image": "moussaka.jpeg",
+	"image": "moussaka.jpg",
 	"comments": [
 		{
 			"author": "fakir_m",
@@ -577,5 +578,24 @@ recette69 = {
 	]
 }
 
-recette = [recette1, recette2, recette3, recette4, recette5, recette5, recette6, recette7, recette8, recette9, recette10, recette11, recette12, recette69]
-print(recette)
+recette = [recette1, recette2, recette3, recette4, recette5, recette6, recette7, recette8, recette9, recette10, recette11, recette12]
+
+
+def get_recipes():
+	return recette
+
+def get_recipe(requested_id):
+	if requested_id == 69:
+		return recette69
+	for recipe in recette:
+		if recipe["id"] == requested_id:
+			return recipe
+	return None
+
+def get_ingredients():
+	ingredients = []
+	for recipe in recette:
+		for ingredient in recipe["ingredients"]:
+			if ingredient not in ingredients:
+				ingredients.append(ingredient)
+	return ingredients

@@ -4,6 +4,7 @@
 from flask import Flask, g, json
 from flask import abort, request, make_response
 from flask import render_template
+from database import get_recipe, get_recipes, get_ingredients
 
 import re
 
@@ -19,8 +20,11 @@ def index():
 
 @app.route('/recettes')
 def recettes():
-    app.logger.debug('serving root URL /')
-    return render_template('recettes.html')
+    recipes = get_recipes()
+    card_deck_nb = int(len(recipes) / 3)
+    to_hide = len(recipes) % 3
+    app.logger.debug("card " + str(card_deck_nb) + " hide " + str(to_hide))
+    return render_template('recettes.html', recipes = recipes, card_deck_nb = card_deck_nb, to_show = len(recipes), to_hide = to_hide)
 
 @app.route('/recette')
 def recette():
