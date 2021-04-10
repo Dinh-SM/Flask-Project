@@ -40,23 +40,16 @@ def recettes():
         return render_template('recettes.html', recipes = recipes, card_deck_nb = card_deck_nb, to_show = len(recipes), to_hide = to_hide)
 
 @app.route('/recette')
-def recette():
-    app.logger.debug('serving root URL /')
+@app.route('/recette/<recipe_id>')
+def recette(recipe_id = None):
+    if recipe_id:
+        app.logger.debug('Recipe ID' + str(recipe_id))
+        recipe = get_recipe(recipe_id)
+        app.logger.debug(recipe)
+        return render_template('recette.html', recipe = recipe)
+    app.logger.debug('404 NOT FOUND')
+    abort(404)
 
-    return render_template('recette.html')#, comments=comment_from_db)
-
-"""
-@app.route('/users', methods=['POST'])
-def newuser():
-    app.logger.debug(request.form)
-    dbid = add_user_from_post(request.form.to_dict())
-    uname = request.form['name']
-    # Forge a standard 201 response
-    headers = {'Location': url_for('users', username=uname)}
-    html = render_template('newuser.html', dbid=dbid, n=uname)
-    resp = make_response(html, 201, headers)
-    return resp
-"""
 
 @app.route('/advanced-search')
 def advanced_search():

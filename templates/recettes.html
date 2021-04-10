@@ -17,6 +17,7 @@
 		<div class="card-deck">
 
 			{% for j in range(0 + 3*i, 3*(i+1)) %}
+
 			<div class="card" data-aos="fade-up" data-aos-delay="200">
 				<a class="my-link-2" href="{{ url_for('recette') }}/{{ recipes[j]['id'] }}">
 					<img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ recipes[j]['image'] }}" alt="Card image cap">
