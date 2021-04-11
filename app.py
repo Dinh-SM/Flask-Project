@@ -87,7 +87,8 @@ def contact():
 def reset():
     app.logger.debug('serving root URL /reset')
     reset_database()
-    return render_template('index.html')
+    reset = True
+    return render_template('index.html', reset = reset)
 
 
 # Script starts here
