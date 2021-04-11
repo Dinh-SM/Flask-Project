@@ -1,13 +1,15 @@
 import json
 
-jsonFile = open("./data.json")
-jsonString = jsonFile.read()
-recette = json.loads(jsonString)
-
 def get_recipes():
+	jsonFile = open("./data.json")
+	jsonString = jsonFile.read()
+	recette = json.loads(jsonString)
 	return recette[:-1]
 
 def get_recipe(requested_id):
+	jsonFile = open("./data.json")
+	jsonString = jsonFile.read()
+	recette = json.loads(jsonString)
 	if int(requested_id) == 69:
 		return recette[-1]
 	for recipe in recette[:-1]:
@@ -15,6 +17,9 @@ def get_recipe(requested_id):
 			return recipe
 
 def add_comment(recipe_id, new_comment):
+	jsonFile = open("./data.json")
+	jsonString = jsonFile.read()
+	recette = json.loads(jsonString)
 	if int(recipe_id) == 69:
 		recette[-1]["comments"].append(new_comment)
 		with open('data.json', 'w') as outfile:
@@ -612,7 +617,3 @@ def reset_database():
 	open("data.json", "w").close()
 	with open('data.json', 'w') as outfile:
 		json.dump(old_recette, outfile)
-
-	jsonFile = open("./data.json")
-	jsonString = jsonFile.read()
-	recette = json.loads(jsonString)
