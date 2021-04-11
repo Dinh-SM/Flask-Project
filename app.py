@@ -4,7 +4,7 @@
 from flask import Flask, g, json
 from flask import abort, request, make_response
 from flask import render_template
-from database import get_recipe, get_recipes, add_comment
+from database import get_recipe, get_recipes, add_comment, reset_database
 
 import re
 from datetime import date
@@ -81,6 +81,13 @@ def recette(recipe_id = None):
 def contact():
     app.logger.debug('serving root URL /contact')
     return render_template('contact.html')
+
+
+@app.route('/reset')
+def reset():
+    app.logger.debug('serving root URL /reset')
+    reset_database()
+    return render_template('index.html')
 
 
 # Script starts here
