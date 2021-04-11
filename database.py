@@ -137,7 +137,7 @@ recette4 = {
 		"Oignons",
 		"Poivre",
 		"Huile d'olive",
-		"Viande hâchée",
+		"Viande de boeuf hâchée",
 		"Lasagnes sèches (en feuille)",
 		"Farine",
 		"Beurre",
@@ -149,6 +149,7 @@ recette4 = {
 		"1 pot",
 		"1 pot",
 		"à envie",
+		"du",
 		"2 cuil. à soupe",
 		"400 g",
 		"(feuilles)",
@@ -590,3 +591,10 @@ def get_recipe(requested_id):
 	for recipe in recette:
 		if recipe["id"] == int(requested_id):
 			return recipe
+
+def add_comment(recipe_id, new_comment):
+	if int(recipe_id) == 69:
+		recette69["comments"].append(new_comment)
+	for recipe in recette:
+		if recipe["id"] == int(recipe_id):
+			recipe["comments"].append(new_comment)

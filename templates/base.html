@@ -39,7 +39,7 @@
             <a class="nav-link text-white" href="{{ url_for('contact') }}">Contact</a></li>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" method="get" action="/recettes">
           <input class="form-control mr-sm-2" name="q" type="search" placeholder="Recette, ingrédient..." aria-label="Chercher">
           <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </form>

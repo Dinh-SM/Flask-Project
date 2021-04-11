@@ -46,13 +46,20 @@
 <div class="container my-container">
 	<div class="row justify-content-around">
 		<div class="col-md-12 my-col-3" data-aos="zoom-in-down" style="height: auto">
-			<h3>Commentaires</h3>
-			<form>
+			<h3>Commentaires {{ recipe['comments']|length }}</h3>
+			<ul class="list-group">
+				{% for comment in  recipe['comments'] %}
+				<li class="list-group-item"><strong>{{ comment['author'] }}</strong> <small>{{ comment['date'] }}</small> : {{ comment['content']}}</li>
+				{% endfor %}
+			</ul>
+
+			<h3 style="margin-top: 20px">Ajouter un commentaire</h3>
+			<form method="post" action="/recette/{{ recipe['id'] }}">
 				<div class="form-group mt-2">
-					<label for="author">Auteur :</label>
-					<input class="form-control" id="author" style="margin-bottom: 15px"></input>
-					<label for="comment">Entrez votre commentaire si vous le souhaitez :</label>
-					<textarea class="form-control" id="comment" rows="4"></textarea>
+					<label for="author">Votre petit nom :</label>
+					<input class="form-control" name="author" id="author" style="margin-bottom: 15px"></input>
+					<label for="content">Entrer votre commentaire :</label>
+					<textarea class="form-control" name="content" id="content" rows="4"></textarea>
 				</div>
 			    <div class="col-auto">
 			    	<button type="submit" class="btn btn-primary mb-2 mt-2">Soumettre le commentaire</button>
@@ -62,26 +69,3 @@
 	</div>
 </div>
 {% endblock %}
-
-<!--
-
-
-    <h1 class="mt-5">New user inserted:</h1>
-    <ul>
-      <ol>location: <a href="{{ url_for('users', username=n) }}">{{n}}</a> </ol>
-      <ol>user id: {{ dbid }}</ol>
-    </ul>
-
-
-ou 
-
-
-{# Format specific user when single is exposed within "user" in the template #}
-    {% if user is defined %}
-    <h1 class="mt-5">User: {{ user.name }}</h1>
-      <ul>{% for k, v in user.items() %}
-        <li>{{ k }}: {{ v }}</li>
-      {% endfor %}</ul>
-    {% endif %}
-    {# End end single user formating #}
--->

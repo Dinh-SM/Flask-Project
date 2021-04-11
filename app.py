@@ -4,9 +4,10 @@
 from flask import Flask, g, json
 from flask import abort, request, make_response
 from flask import render_template
-from database import get_recipe, get_recipes
+from database import get_recipe, get_recipes, add_comment
 
 import re
+from datetime import date
 
 
 app = Flask(__name__)
@@ -22,7 +23,6 @@ def index():
 def recettes():
     if request.args.get("q"):
         app.logger.debug(request.args.get("q"))
-        names, names_ids = get_names_ids()
         recipes = get_recipes()
         filtered_recipes = []
         for recipe in recipes:
@@ -31,26 +31,47 @@ def recettes():
             for ingredient in recipe["ingredients"]:
                 if re.search("^.*" + request.args.get("q") + ".*$", ingredient, re.IGNORECASE) and (recipe not in filtered_recipes):
                     filtered_recipes.append(recipe)
-        app.logger.debug(filtered_recipes)
-        card_deck_nb = int(len(recipes) / 3)
-        to_hide = len(recipes) % 3
-        app.logger.debug("card " + str(card_deck_nb) + " hide " + str(to_hide))
-        return render_template('recettes.html', filtered_recipes = filtered_recipes, card_deck_nb = card_deck_nb, to_show = len(filtered_recipes), to_hide = to_hide)
+        app.logger.debug(len(filtered_recipes))
+        
+        card_deck_nb = int(len(filtered_recipes) / 3)
+        to_hide = 3-len(filtered_recipes) % 3
+        if to_hide > 0:
+            card_deck_nb += 1
+        return render_template('recettes.html', recipes = filtered_recipes, card_deck_nb = card_deck_nb, to_hide = to_hide)
 
     else:
         recipes = get_recipes()
         card_deck_nb = int(len(recipes) / 3)
-        to_hide = len(recipes) % 3
-        app.logger.debug("card " + str(card_deck_nb) + " hide " + str(to_hide))
-        return render_template('recettes.html', recipes = recipes, card_deck_nb = card_deck_nb, to_show = len(recipes), to_hide = to_hide)
+        to_hide = 3-len(recipes) % 3
+        if to_hide > 0:
+            card_deck_nb += 1
+        return render_template('recettes.html', recipes = recipes, card_deck_nb = card_deck_nb, to_hide = to_hide)
 
 @app.route('/recette')
-@app.route('/recette/<recipe_id>')
+@app.route('/recette/<recipe_id>', methods=['GET', 'POST'])
 def recette(recipe_id = None):
-    if recipe_id:
+    if recipe_id and request.method != 'POST':
         app.logger.debug('Recipe ID' + str(recipe_id))
         recipe = get_recipe(recipe_id)
-        app.logger.debug(recipe)
+        if not recipe:
+            app.logger.debug('404 NOT FOUND')
+            abort(404)
+        app.logger.debug(recipe['name'])
+        return render_template('recette.html', recipe = recipe)
+    elif recipe_id and request.method == 'POST':
+        app.logger.debug(request.form)
+        new_comment = {
+            "author": request.form['author'],
+            "date": date.today().strftime("%d-%m-%Y"),
+            "content": request.form['content']
+        }
+        app.logger.debug(new_comment)
+        add_comment(recipe_id, new_comment)
+        recipe = get_recipe(recipe_id)
+        if not recipe:
+            app.logger.debug('404 NOT FOUND')
+            abort(404)
+        app.logger.debug(recipe['comments'])
         return render_template('recette.html', recipe = recipe)
     app.logger.debug('404 NOT FOUND')
     abort(404)
@@ -58,7 +79,7 @@ def recette(recipe_id = None):
 
 @app.route('/contact')
 def contact():
-    app.logger.debug('serving root URL /')
+    app.logger.debug('serving root URL /contact')
     return render_template('contact.html')
 
 
