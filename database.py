@@ -10,9 +10,8 @@ def get_recipe(requested_id):
 	jsonFile = open("./data.json")
 	jsonString = jsonFile.read()
 	recette = json.loads(jsonString)
-	if int(requested_id) == 69:
-		return recette[-1]
-	for recipe in recette[:-1]:
+
+	for recipe in recette:
 		if recipe["id"] == int(requested_id):
 			return recipe
 
@@ -20,15 +19,48 @@ def add_comment(recipe_id, new_comment):
 	jsonFile = open("./data.json")
 	jsonString = jsonFile.read()
 	recette = json.loads(jsonString)
-	if int(recipe_id) == 69:
-		recette[-1]["comments"].append(new_comment)
-		with open('data.json', 'w') as outfile:
-			json.dump(recette, outfile)
-	for recipe in recette[:-1]:
+
+	for recipe in recette:
 		if recipe["id"] == int(recipe_id):
-			recipe["comments"].append(new_comment)
-			with open('data.json', 'w') as outfile:
-				json.dump(recette, outfile)
+
+			already_in = False
+			for comment in recipe["comments"]:
+				if comment['author'] == new_comment['author'] and comment['date'] == new_comment['date'] and comment['content'] == new_comment['content']:
+					already_in = True
+
+			if not already_in:
+				recipe["comments"].append(new_comment)
+				with open('data.json', 'w') as outfile:
+					json.dump(recette, outfile)
+
+def edit_comment(recipe_id, edited_comment, old_date, old_content):
+	jsonFile = open("./data.json")
+	jsonString = jsonFile.read()
+	recette = json.loads(jsonString)
+
+	for recipe in recette:
+		if recipe["id"] == int(recipe_id):
+
+			for comment in recipe["comments"]:
+				if comment['author'] == edited_comment['author'] and comment['date'] == old_date and comment['content'] == old_content:
+					comment['date'] = edited_comment['date']
+					comment['content'] = edited_comment['content']
+					with open('data.json', 'w') as outfile:
+						json.dump(recette, outfile)
+
+def delete_comment(recipe_id, deleted_comment):
+	jsonFile = open("./data.json")
+	jsonString = jsonFile.read()
+	recette = json.loads(jsonString)
+
+	for recipe in recette:
+		if recipe["id"] == int(recipe_id):
+
+			for comment in recipe["comments"]:
+				if comment['author'] == deleted_comment['author'] and comment['date'] == deleted_comment['date'] and comment['content'] == deleted_comment['content']:
+					recipe["comments"].remove(deleted_comment)
+					with open('data.json', 'w') as outfile:
+						json.dump(recette, outfile)
 
 def reset_database():
 	recette1 = {

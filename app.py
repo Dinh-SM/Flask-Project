@@ -4,7 +4,7 @@
 from flask import Flask, g, json
 from flask import abort, request, make_response
 from flask import render_template
-from database import get_recipe, get_recipes, add_comment, reset_database
+from database import get_recipe, get_recipes, add_comment, edit_comment, delete_comment, reset_database
 
 import re
 from datetime import date
@@ -55,7 +55,7 @@ def recettes():
         return render_template('recettes.html', recipes = recipes, card_deck_nb = card_deck_nb, to_hide = to_hide)
 
 @app.route('/recette')
-@app.route('/recette/<recipe_id>', methods=['GET', 'POST'])
+@app.route('/recette/<recipe_id>', methods=['GET', 'POST', 'PUT'])
 def recette(recipe_id = None):
     if recipe_id and request.method != 'POST':
         app.logger.debug('Recipe ID' + str(recipe_id))
@@ -65,7 +65,8 @@ def recette(recipe_id = None):
             abort(404)
         app.logger.debug(recipe['name'])
         return render_template('recette.html', recipe = recipe)
-    elif recipe_id and request.method == 'POST':
+    
+    elif recipe_id and request.method == 'POST' and "_method" not in request.form.keys():
         app.logger.debug(request.form)
         new_comment = {
             "author": request.form['author'],
@@ -79,7 +80,45 @@ def recette(recipe_id = None):
             app.logger.debug('404 NOT FOUND')
             abort(404)
         app.logger.debug(recipe['comments'])
-        return render_template('recette.html', recipe = recipe)
+        return render_template('recette.html', recipe = recipe, add = True)
+    
+    elif recipe_id and (("_method" in request.form.keys() and request.form['_method'] == 'PUT') or request.method == 'PUT'):
+        app.logger.debug(request.form)
+        
+        if len(request.form['old_date']) > 10:
+        	new_date = request.form['old_date'][:10] + " (modifié le " + date.today().strftime("%d-%m-%Y") + ")"
+        elif len(request.form['old_date']) == 10:
+        	new_date = request.form['old_date'] + " (modifié le " + date.today().strftime("%d-%m-%Y") + ")"
+        
+        edited_comment = {
+            "author": request.form['author'],
+            "date": new_date,
+            "content": request.form['new_content']
+        }
+        edit_comment(recipe_id, edited_comment, request.form['old_date'], request.form['old_content'])
+    
+        recipe = get_recipe(recipe_id)
+        if not recipe:
+            app.logger.debug('404 NOT FOUND')
+            abort(404)
+        return render_template('recette.html', recipe = recipe, edit = True)
+
+    elif recipe_id and (("_method" in request.form.keys() and request.form['_method'] == 'DELETE') or request.method == 'DELETE'):
+        app.logger.debug(request.form)
+
+        deleted_comment = {
+            "author": request.form['author'],
+            "date": request.form['date'],
+            "content": request.form['content']
+        }
+        delete_comment(recipe_id, deleted_comment)
+    
+        recipe = get_recipe(recipe_id)
+        if not recipe:
+            app.logger.debug('404 NOT FOUND')
+            abort(404)
+        return render_template('recette.html', recipe = recipe, delete = True)
+    
     app.logger.debug('404 NOT FOUND')
     abort(404)
 

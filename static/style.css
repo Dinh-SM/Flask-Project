@@ -155,6 +155,10 @@ body{
   margin-bottom: 25px;
 }
 
+.my-li-2{
+  cursor: pointer;
+}
+
 .carousel-image{
 	filter: brightness(64%);
 }

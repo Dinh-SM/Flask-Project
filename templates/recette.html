@@ -1,6 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% if add %}
+<div class="container my-container">
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		Commentaire <strong>ajouté</strong> avec succès !
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</div>
+{% endif %}
+
+{% if edit %}
+<div class="container my-container">
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		Commentaire <strong>modifié</strong> avec succès !
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</div>
+{% endif %}
+
+{% if delete %}
+<div class="container my-container">
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		Commentaire <strong>supprimé</strong> avec succès !
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</div>
+{% endif %}
+
 <div class="container my-container">
 	<div class="row justify-content-around">
 		<div class="col-md-12 my-col-title" data-aos="fade-up">
@@ -49,23 +83,81 @@
 			<h3>Commentaires {{ recipe['comments']|length }}</h3>
 			<ul class="list-group">
 				{% for comment in  recipe['comments'] %}
-				<li class="list-group-item"><strong>{{ comment['author'] }}</strong> <small>{{ comment['date'] }}</small> : {{ comment['content']}}</li>
+				<li class="list-group-item my-li-2" data-toggle="modal" data-target="#editDeleteModal" data-author="{{ comment['author'] }}" data-content="{{ comment['content'] }}" data-date="{{ comment['date'] }}" title="Cliquer pour modifier ou supprimer">
+					<strong>{{ comment['author'] }}</strong> <small>{{ comment['date'] }}</small> : {{ comment['content'] }}
+				</li>
 				{% endfor %}
 			</ul>
 
 			<h3 style="margin-top: 20px">Ajouter un commentaire</h3>
-			<form method="post" action="/recette/{{ recipe['id'] }}">
+			<form id="commentForm" method="post" action="/recette/{{ recipe['id'] }}">
 				<div class="form-group mt-2">
 					<label for="author">Votre petit nom :</label>
 					<input class="form-control" name="author" id="author" style="margin-bottom: 15px" minlength="2" maxlength="40" required></input>
 					<label for="content">Entrer votre commentaire :</label>
 					<textarea class="form-control" name="content" id="content" rows="4" minlength="2" maxlength="500" required></textarea>
 				</div>
-			    <div class="col-auto">
-			    	<button type="submit" class="btn btn-primary mb-2 mt-2">Soumettre le commentaire</button>
-			    </div>	
+				<div class="col-auto">
+					<button form="commentForm" type="submit" class="btn btn-primary mb-2 mt-2">Soumettre le commentaire</button>
+				</div>	
 			</form>
 		</div>
 	</div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editDeleteModal" tabindex="-1" role="dialog" aria-labelledby="editDeleteModalTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="editDeleteModalTitle">Modifier ou supprimer le commentaire</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="editForm" method="post" action="/recette/{{ recipe['id'] }}">
+					<div class="form-group mt-2">
+						<input type="hidden" name="_method" value="PUT"/>
+						<input class="form-control author" type="hidden" name="author"/>
+						<input class="form-control old_date" type="hidden" name="old_date"/>
+						<input class="form-control old_content" type="hidden" name="old_content"/>
+
+						<label for="new_content"></label>
+						<textarea class="form-control" name="new_content" id="new_content" rows="4" minlength="2" maxlength="500" required></textarea>
+					</div>
+				</form>
+				<form id="deleteForm" method="post" action="/recette/{{ recipe['id'] }}" style="display: none">
+					<div class="form-group mt-2">
+						<input type="hidden" name="_method" value="DELETE"/>
+						<input class="form-control author" type="hidden" name="author"/>
+						<input class="form-control old_date" type="hidden" name="date"/>
+						<input class="form-control old_content" type="hidden" name="content"/>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button form="deleteForm" type="submit" class="btn btn-danger">Supprimer</button>
+				<button form="editForm" type="submit" class="btn btn-primary">Modifier</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('#editDeleteModal').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget)
+		var author = button.data('author')
+		var old_content = button.data('content')
+		var old_date = button.data('date')
+		var modal = $(this)
+		modal.find('.modal-body label').text("Commentaire de " + author + " publié le " + old_date + " :")
+		modal.find('.modal-body input.author').val(author)
+		modal.find('.modal-body input.old_date').val(old_date)
+		modal.find('.modal-body input.old_content').val(old_content)
+		modal.find('.modal-body textarea').val(old_content)
+	})
+</script>
 {% endblock %}
