@@ -95,7 +95,13 @@ def reset():
     app.logger.debug('serving root URL /reset')
     reset_database()
     reset = True
-    return render_template('index.html', reset = reset)
+    recipes = get_recipes()
+    front_page_recipes = []
+    for i in range(1,4):
+        front_page_recipes.append(recipes[-i])
+    for i in range(3):
+        front_page_recipes.append(recipes[i])
+    return render_template('index.html', reset = reset, week_recipes = front_page_recipes)
 
 
 # Script starts here
