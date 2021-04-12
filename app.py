@@ -16,7 +16,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     app.logger.debug('serving root URL /')
-    return render_template('index.html')
+    recipes = get_recipes()
+    front_page_recipes = []
+    for i in range(1,4):
+        front_page_recipes.append(recipes[-i])
+    for i in range(3):
+        front_page_recipes.append(recipes[i])
+    #app.logger.debug(front_page_recipes)
+    return render_template('index.html', week_recipes = front_page_recipes)
 
 
 @app.route('/recettes', methods=["GET"])

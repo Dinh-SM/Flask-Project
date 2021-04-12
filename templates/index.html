@@ -31,28 +31,27 @@
 	<div class="row justify-content-around">
 		<div class="card-deck">
 		  <div class="card" data-aos="fade-up" data-aos-delay="200">
-		  	<a class="my-link-2" href="#">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
+		  	<a class="my-link-2" href="{{ url_for('recette') }}/{{ week_recipes[0]['id'] }}">
+			    <img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ week_recipes[0]['image'] }}" alt="Card image cap">
 			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
+			      <h3 class="card-title text-center">{{ week_recipes[0]["name"] }}</h3>
 			    </div>
 		    </a>
 		  </div>
-
 		  <div class="card" data-aos="fade-up" data-aos-delay="400">
-		  	<a class="my-link-2" href="#">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
+		  	<a class="my-link-2" href="{{ url_for('recette') }}/{{ week_recipes[1]['id'] }}">
+			    <img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ week_recipes[1]['image'] }}" alt="Card image cap">
 			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
+			      <h3 class="card-title text-center">{{ week_recipes[1]["name"] }}</h3>
 			    </div>
 		    </a>
 		  </div>
 
 		  <div class="card" data-aos="fade-up" data-aos-delay="600">
-		  	<a class="my-link-2" href="#">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
+		  	<a class="my-link-2" href="{{ url_for('recette') }}/{{ week_recipes[2]['id'] }}">
+			    <img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ week_recipes[2]['image'] }}" alt="Card image cap">
 			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
+			      <h3 class="card-title text-center">{{ week_recipes[2]["name"] }}</h3>
 			    </div>
 		    </a>
 		  </div>
@@ -71,28 +70,28 @@
 	<div class="row justify-content-around">
 		<div class="card-deck">
 		  <div class="card" data-aos="fade-up" data-aos-delay="200">
-		  	<a class="my-link-2" href="#">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
+		  	<a class="my-link-2" href="{{ url_for('recette') }}/{{ week_recipes[3]['id'] }}">
+			    <img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ week_recipes[3]['image'] }}" alt="Card image cap">
 			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
+			      <h3 class="card-title text-center">{{ week_recipes[3]["name"] }}</h3>
 			    </div>
 		    </a>
 		  </div>
 
 		  <div class="card" data-aos="fade-up" data-aos-delay="400">
-		  	<a class="my-link-2" href="#">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
+		  	<a class="my-link-2" href="{{ url_for('recette') }}/{{ week_recipes[4]['id'] }}">
+			    <img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ week_recipes[4]['image'] }}" alt="Card image cap">
 			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
+			      <h3 class="card-title text-center">{{ week_recipes[4]["name"] }}</h3>
 			    </div>
 		    </a>
 		  </div>
 
 		  <div class="card" data-aos="fade-up" data-aos-delay="600">
-		  	<a class="my-link-2" href="#">
-			    <img class="card-img-top" src="https://via.placeholder.com/900x300" alt="Card image cap">
+		  	<a class="my-link-2" href="{{ url_for('recette') }}/{{ week_recipes[5]['id'] }}">
+			    <img class="card-img-top" src="{{ url_for('static', filename='asset/images/') }}{{ week_recipes[5]['image'] }}" alt="Card image cap">
 			    <div class="card-body">
-			      <h3 class="card-title text-center">Card title</h3>
+			      <h3 class="card-title text-center">{{ week_recipes[5]["name"] }}</h3>
 			    </div>
 		    </a>
 		  </div>
