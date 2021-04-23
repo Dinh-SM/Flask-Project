@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ page_title|default('Site de merde') }}</title>
+    <title>{{ page_title|default('BIM-Cuisine') }}</title>
     <meta charset="UTF-8">
-    <meta name="author" content="Son-Michel DINH, Julie KLEINE-SCHULTJANN, Rafik MANKOUR, Adrian ZURMELY">
+    <meta name="author" content="Son-Michel DINH, Julie KLEINE-SCHULTJANN, Rafik MANKOUR et Adrian ZURMELY">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,11 +21,11 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 {% block head %}{% endblock %}
   </head>
-  
+
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light .d-block .d-md-none justify-content-between">
-      <a class="navbar-brand text-white" href="{{ url_for('index') }}">Site de merde</a>
+      <a class="navbar-brand text-white" href="{{ url_for('index') }}">Accueil</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -46,15 +46,15 @@
         </form>
       </div>
     </nav>
-    
+
 {% block content %}{% endblock %}
 
     <!-- Footer -->
     <footer class="text-white sticky-bottom">
-      <div class="text-center bg-light py-2">Son-Michel DINH, Julie KLEINE-SCHULTJANN, Rafik MANKOUR, Adrian ZURMELY
+      <div class="text-center bg-light py-2">Son-Michel DINH, Julie KLEINE-SCHULTJANN, Rafik MANKOUR et Adrian ZURMELY
       <div class="text-center bg-light py-2">
-        Étudiants de 4ème année <a href="https://www.insa-lyon.fr/" class="my-link" target="_blank" rel="noopener noreferrer">INSA Lyon</a> - 
-        <a href="https://biosciences.insa-lyon.fr/" class="my-link" target="_blank" rel="noopener noreferrer">Département Biosciences</a> - 
+        Étudiants de 4ème année <a href="https://www.insa-lyon.fr/" class="my-link" target="_blank" rel="noopener noreferrer">INSA Lyon</a> -
+        <a href="https://biosciences.insa-lyon.fr/" class="my-link" target="_blank" rel="noopener noreferrer">Département Biosciences</a> -
         Filière Bio-Informatique et Modélisation
       </div>
     </footer>
