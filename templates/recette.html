@@ -37,7 +37,7 @@
 
 <div class="container my-container">
 	<div class="row justify-content-around">
-		<div class="col-md-12 my-col-title" data-aos="fade-up">
+		<div class="col-md-12 my-col-title" data-aos="zoom-in">
 			<h1 class="centered-text">{{ recipe["name"] }}</h1>
 		</div>
 	</div>
@@ -55,7 +55,7 @@
 
 		</div>
 		<div class="col-md-5 img-col" data-aos="fade-left" style="display:flex; align-items:center;">
-			<a href="#">
+			<a href="{{ url_for('static', filename='asset/images/') }}{{ recipe['image'] }}" target="_blank">
 				<img class="recipe-img" src="{{ url_for('static', filename='asset/images/') }}{{ recipe['image'] }}" alt="dish">
 			</a>
 		</div>

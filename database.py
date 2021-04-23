@@ -315,11 +315,11 @@ def reset_database():
 		],
 		"preparation": [
 			"Préparer la crème de ciboulette:",
-			"mélanger à même le pot la crème fraîche avec la ciboulette ciselée, le poivre (du moulin !), le sel et 10 gouttes de tabasco.", "artiner une légère couche sur la moitié basse du pain à burger.",
+			"Mélanger à même le pot la crème fraîche avec la ciboulette ciselée, le poivre (du moulin !), le sel et 10 gouttes de tabasco.", "artiner une légère couche sur la moitié basse du pain à burger.",
 			"Dresser le burger:",
-			"déposer sur chaque moitié de pain tartiné quelques feuilles de salade, des lamelles de concombre épluché (et/ou d'avocat), des lamelles d'oignon rouge épluché, une tranche de saumon plié de façon à ce qu'elle ne dépasse pas du burger, et déposer une bonne cuillère de crème de ciboulette.",
-			"refermer avec le chapeau du pain à burger et déposer dessus une moitié de cornichon coupé dans la longueur, piquez-le dans le burger pour le maintenir en place.",
-			"servir dans les assiettes avec le reste de salade."
+			"Déposer sur chaque moitié de pain tartiné quelques feuilles de salade, des lamelles de concombre épluché (et/ou d'avocat), des lamelles d'oignon rouge épluché, une tranche de saumon plié de façon à ce qu'elle ne dépasse pas du burger, et déposer une bonne cuillère de crème de ciboulette.",
+			"Refermer avec le chapeau du pain à burger et déposer dessus une moitié de cornichon coupé dans la longueur, piquez-le dans le burger pour le maintenir en place.",
+			"Servir dans les assiettes avec le reste de salade."
 		],
 		"image": "Burger_saumon.jpeg",
 		"comments": [
